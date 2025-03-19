@@ -8,7 +8,7 @@ module program_counter #(parameter WIDTH = 32)(clk, rst, pc_scr,current_ins_add)
 
   always @(posedge clk) begin //Here negedge reset is used 
     if(!rst) begin
-      current_ins_add <= 32'h0000_0000;
+	    current_ins_add <= {WIDTH{1'b0}};
     end
     else if(pc_scr != 7'b1111111)begin       //to implement halt
       current_ins_add <= next_ins_add;      //next instruction address is assigned to current instruction address
