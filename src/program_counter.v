@@ -2,7 +2,7 @@ module program_counter #(parameter WIDTH = 32)(clk, rst, pc_scr,current_ins_add)
   input clk;
   input rst;
   input [6:0] pc_scr;
-  output reg [WIDTH-1:0] current_ins_add;
+  output reg [WIDTH-1:0] current_ins_add = {WIDTH{1'b0}};
   
   wire [WIDTH-1:0] next_ins_add;
 
