@@ -1,6 +1,16 @@
 `default_nettype none
 `timescale 1ns / 1ps
-
+`include "program_counter.v"
+`include "program_memory.v"
+`include "fetch_stage.v"
+`include "decode_stage.v"
+`include "control_unit.v"
+`include "reg_bank.v"
+`include "data_forward.v"
+`include "mux_2_1.v"
+`include "alu.v"
+`include "writeback_stage.v"
+`include "
 /* This testbench just instantiates the module and makes some convenient wires
    that can be driven / tested by the cocotb test.py.
 */
