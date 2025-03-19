@@ -18,7 +18,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 32) (clk, rst, out);
   output [WIDTH-1:0] out;
 
   //program counter
-  wire [WIDTH-1:0] current_ins_add_w;
+  wire [7:0] current_ins_add_w;
   //program memory
   wire [WIDTH-1:0] instruction_w;
   //fetch stage
