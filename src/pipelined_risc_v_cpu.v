@@ -67,7 +67,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 32) (clk, rst, out);
     .current_ins_add(current_ins_add_w)
   );
 
-	progarm_memory #(.DEPTH(256), .WIDTH(32), .ADD_WIDTH(8)) progarm_memory_inst(.clk(clk), .add(current_ins_add_w[7:0]),
+	progarm_memory #(.DEPTH(256), .WIDTH(8), .ADD_WIDTH(8)) progarm_memory_inst(.clk(clk), .add(current_ins_add_w[7:0]),
     .instruction(instruction_w)
   );
 
