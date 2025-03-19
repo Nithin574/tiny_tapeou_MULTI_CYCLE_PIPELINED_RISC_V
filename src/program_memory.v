@@ -1,4 +1,5 @@
-module progarm_memory #(parameter DEPTH = 256, WIDTH = 32, ADD_WIDTH = 8) (add, instruction); //This module implements the 4k program memory where instruction are stored
+module progarm_memory #(parameter DEPTH = 256, WIDTH = 32, ADD_WIDTH = 8) (clk, add, instruction); //This module implements the 4k program memory where instruction are stored
+  input clk;
   input [ADD_WIDTH-1:0] add;
   output [WIDTH-1:0] instruction;
 
@@ -7,7 +8,7 @@ module progarm_memory #(parameter DEPTH = 256, WIDTH = 32, ADD_WIDTH = 8) (add, 
   //asynchronous read
   assign instruction = mem[add];               //Reading instruction based on program counter address
 
-  initial begin //initializing program memory with sum instruction to check operation
+  always @(posedge clk) begin //initializing program memory with sum instruction to check operation
     mem[0] <= 32'b000000001000_00000_000_00001_0010011;   // addi R1 = R0 + 8 here immediate value given in RS2 and opcode is 0010011
     mem[1] <= 32'b000000000010_00000_000_00010_0010011;   // addi R2 = R0 + 2 here immediate value given in RS2 and opcode is 0010011
     mem[2] <= 32'b0000000_00010_00001_000_00011_0110011;  // ADD R3=R1+R2;
