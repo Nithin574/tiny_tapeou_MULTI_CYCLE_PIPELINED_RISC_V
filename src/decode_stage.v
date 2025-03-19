@@ -1,4 +1,4 @@
-module decode_stage #(parameter WIDTH = 32) (clk, r_reg1, r_reg2, wr_reg, func3, func7, opcode, immediate_data, r_reg1_out, r_reg2_out, wr_reg_out, immediate_data_out, func3_out, func7_out, opcode_out);//This module implements the decode/execute pipeline stage
+module decode_stage #(parameter WIDTH = 15) (clk, r_reg1, r_reg2, wr_reg, func3, func7, opcode, immediate_data, r_reg1_out, r_reg2_out, wr_reg_out, immediate_data_out, func3_out, func7_out, opcode_out);//This module implements the decode/execute pipeline stage
   input clk;
   input [2:0] func3;
   input [4:0] r_reg1;
