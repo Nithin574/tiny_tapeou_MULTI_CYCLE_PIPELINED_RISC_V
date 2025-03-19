@@ -22,7 +22,7 @@ module tt_um_pipelined_risc_v_cpu (
   assign uio_oe  = 8'hff;
 
   // List all unused inputs to prevent warnings
-    wire _unused = &{ena, clk, rst_n, ui_in, 1'b0};
+    wire _unused = &{ena, clk, rst_n, ui_in, uio_in, 1'b0};
 
     pipelined_risc_v_cpu #(.WIDTH(32)) inst(clk, rst_n, out);
 
