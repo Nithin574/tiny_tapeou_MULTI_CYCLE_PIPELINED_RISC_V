@@ -59,7 +59,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 32) (clk, rst, out);
   wire [WIDTH-1:0] mux_out_op2;
 
   //top module output
-  assign out = alu_result_wb_w;
+	assign out = alu_result_wb_w[15:0];
 
   program_counter #(.WIDTH(8)) program_counter_inst(.clk(clk),
     .rst(rst),
