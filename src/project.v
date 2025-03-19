@@ -15,7 +15,7 @@ module tt_um_pipelined_risc_v_cpu (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-    wire [15:0] out;
+    wire [31:0] out;
   // All output pins must be assigned. If not used, assign to 0.
   //assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
     assign {uio_out,uo_out} = out[15:0];
