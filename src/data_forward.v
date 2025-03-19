@@ -9,14 +9,14 @@ module data_forward #(parameter ADDR_WIDTH = 5) ( r_reg1, r_reg2, w_reg, op1_sel
     if(r_reg1 == w_reg)
       op1_select = 1'b1;
     else
-      op1_select = 2'b00;
+      op1_select = 1'b0;
   end
 
   always @(r_reg2, w_reg) begin
     if(r_reg2 == w_reg)
-      op2_select = 2'b01;
+      op2_select = 1'b1;
     else
-      op2_select = 2'b00;
+      op2_select = 1'b0;
   end
 
 endmodule
