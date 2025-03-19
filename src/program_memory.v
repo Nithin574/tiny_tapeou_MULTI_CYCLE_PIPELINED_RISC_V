@@ -4,7 +4,7 @@ module progarm_memory #(parameter DEPTH = 256, WIDTH = 32, ADD_WIDTH = 8) (clk, 
   output [WIDTH-1:0] instruction;
 
   reg [WIDTH - 1 : 0] mem [0 : DEPTH - 1]; //creating 4k memory
-
+  integer i;
   //asynchronous read
   assign instruction = mem[add];               //Reading instruction based on program counter address
 
@@ -19,6 +19,8 @@ module progarm_memory #(parameter DEPTH = 256, WIDTH = 32, ADD_WIDTH = 8) (clk, 
     mem[7] <= 32'b0000000_00010_00111_000_01000_0110011;  //ADD R8=R2+R7;
     mem[8] <= 32'b0000000_01000_00001_000_00001_0110011;  //ADD R1=R8+R1;
     mem[9] <= 32'b0000000_00000_00000_000_00000_1111111; //halt
+    for(i = 10; i < DEPTH; i = i + 1)
+      mem[i] <= 0;
   end
 
 endmodule
