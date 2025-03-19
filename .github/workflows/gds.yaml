@@ -18,13 +18,24 @@ jobs:
         with:
           flow: openlane2
 
-      # Debugging: Save Yosys logs if synthesis fails
+      # Debugging: List all files to find the correct Yosys log location
+      - name: Debug - List all files
+        if: always()
+        run: find . -type f | tee file_list.txt
+
+      # Debugging: Find where yosys.log is actually located
+      - name: Find Yosys Log
+        if: always()
+        run: find . -name "yosys.log" || echo "yosys.log not found"
+
+      # Save Yosys logs if they exist
       - name: Save Yosys Logs
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: yosys-logs
-          path: runs/wokwi/08-checker-yosyssynthchecks/yosys.log
+          path: "**/yosys.log"
+          if-no-files-found: warn  # Prevents failure if log is missing
 
   precheck:
     needs: gds
