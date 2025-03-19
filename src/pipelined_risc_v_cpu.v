@@ -15,14 +15,14 @@
 module pipelined_risc_v_cpu #(parameter WIDTH = 15) (clk, rst, out);
   input clk;
   input rst;
-  output [WIDTH-1:0] out;
+  output [WIDTH:0] out;
 
   //program counter
   wire [7:0] current_ins_add_w;
   //program memory
-  wire [WIDTH-1:0] instruction_w;
+	wire [31:0] instruction_w;
   //fetch stage
-  wire [WIDTH-1:0] next_ins_w;
+	wire [31:0] next_ins_w;
   //control unit
   wire reg_wen_w;
   wire data_imm_sel_w;
@@ -75,7 +75,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 15) (clk, rst, out);
     .current_ins(instruction_w),
     .next_ins(next_ins_w)
   );
-  decode_stage #(.WIDTH(32)) decode_stage_inst(.clk(clk), 
+	decode_stage #(.WIDTH(15)) decode_stage_inst(.clk(clk), 
     .r_reg1(next_ins_w[19:15]), 
     .r_reg2(next_ins_w[24:20]), 
     .wr_reg(next_ins_w[11:7]), 
@@ -105,7 +105,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 15) (clk, rst, out);
     .r_reg1(r_reg1_out),
     .r_reg2(r_reg2_out),
     .w_reg(wr_reg_wb_w),
-    .w_data(alu_result_wb_w),
+									.w_data(alu_result_wb_w[14:0]),
     .read_data1(read_data1_w),
     .read_data2(read_data2_w)
   );
