@@ -21,7 +21,7 @@ jobs:
       # Debugging: Save Yosys logs if synthesis fails
       - name: Save Yosys Logs
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: yosys-logs
           path: runs/wokwi/08-checker-yosyssynthchecks/yosys.log
