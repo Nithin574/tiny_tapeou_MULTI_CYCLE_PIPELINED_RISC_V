@@ -31,7 +31,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 32) (clk, rst, out);
   wire [WIDTH-1:0] read_data1_w;
   wire [WIDTH-1:0] read_data2_w;
   //decode stage
-  wire reg_wen_dec_w;
+  //wire reg_wen_dec_w;
   wire [2:0] func3_out;
   wire [4:0] r_reg1_out;
   wire [4:0] r_reg2_out;
@@ -39,15 +39,15 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 32) (clk, rst, out);
   wire [6:0] func7_out;
   wire [6:0] opcode_out;
   wire [WIDTH-1:0] immediate_data_dec_w;
-  wire [WIDTH-1:0] op1_out_w;
-  wire [WIDTH-1:0] op2_out_w;
+  //wire [WIDTH-1:0] op1_out_w;
+ // wire [WIDTH-1:0] op2_out_w;
   //alu
   wire [WIDTH-1:0] alu_result_w;
   //writeback stage
   wire reg_wen_wb_w;
-  wire data_wb_sel_wb_w;
+  //wire data_wb_sel_wb_w;
   wire [4:0] wr_reg_wb_w;
-  wire [WIDTH-1:0] immediate_data_wb_w;
+  //wire [WIDTH-1:0] immediate_data_wb_w;
   wire [WIDTH-1:0] alu_result_wb_w;
   //immediate data select mux
   wire [WIDTH-1:0] mux_out_w;
