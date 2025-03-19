@@ -1,4 +1,4 @@
-module writeback_stage #(parameter WIDTH = 32) (clk, reg_wen, wr_reg, alu_result, reg_wen_out, wr_reg_out, alu_result_out);//this module implements the execute/write back pipeline stage
+module writeback_stage #(parameter WIDTH = 16) (clk, reg_wen, wr_reg, alu_result, reg_wen_out, wr_reg_out, alu_result_out);//this module implements the execute/write back pipeline stage
   input clk;
   input reg_wen;
   input [4:0] wr_reg;
