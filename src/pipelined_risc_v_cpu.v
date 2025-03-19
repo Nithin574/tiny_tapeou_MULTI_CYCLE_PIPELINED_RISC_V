@@ -1,5 +1,5 @@
 
-
+/*
 `include "program_counter.v"
 `include "program_memory.v"
 `include "fetch_stage.v"
@@ -11,7 +11,7 @@
 `include "alu.v"
 `include "writeback_stage.v"
 
-
+*/
 module pipelined_risc_v_cpu #(parameter WIDTH = 32) (clk, rst, out);
   input clk;
   input rst;
