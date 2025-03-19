@@ -8,10 +8,10 @@ module reg_bank #(parameter DEPTH = 32, WIDTH = 32, ADD_WIDTH = 5) (clk, w_en, r
   output [WIDTH-1:0] read_data1;
   output [WIDTH-1:0] read_data2;
 
-  reg [WIDTH - 1 : 0] registers[0 : DEPTH - 1]; //32 bit 32 (32x32) register creation
+	reg [WIDTH - 1 : 0] registers[0 : DEPTH - 1]; //32 bit 32 (32x15) register creation
 
   always @(posedge clk) begin
-	  registers[0] <= 32'h0000_0000;
+    registers[0] <= {WIDTH{1'b0}};
     if(w_en && w_reg != 5'b00000)                                    //based on write enable writing happens synchronously
       registers[w_reg] <= w_data;
   end
