@@ -8,7 +8,7 @@ jobs:
   gds:
     runs-on: ubuntu-24.04
     steps:
-      - name: checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -17,6 +17,14 @@ jobs:
         uses: TinyTapeout/tt-gds-action@tt10
         with:
           flow: openlane2
+
+      # Debugging: Save Yosys logs if synthesis fails
+      - name: Save Yosys Logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: yosys-logs
+          path: runs/wokwi/08-checker-yosyssynthchecks/yosys.log
 
   precheck:
     needs: gds
@@ -29,7 +37,7 @@ jobs:
     needs: gds
     runs-on: ubuntu-24.04
     steps:
-      - name: checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
