@@ -34,7 +34,7 @@ async def test_project(dut):
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
-    concatenated_value = (dut.uo_out.value.integer << 8) | dut.uio_out.value.integer
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
     #assert dut.uo_out.value == 8
     assert concatenated_value == 8
 
