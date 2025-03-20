@@ -26,44 +26,44 @@ async def test_project(dut):
     dut._log.info("Test project behavior")
     await ClockCycles(dut.clk, 4)  
   #  assert dut.uio_out.value == 0  
-    dut._log.info(f"Test Case 1: Expected 8, Got {dut.uo_out.value}") 
-    assert dut.uo_out.value == 8 and dut.uio_out.value == 0, f"Test Case 3 Failed: Expected 10, Got {dut.uo_out.value}"
+    dut._log.info(f"Test Case 1: Expected 8, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 8, f"Test Case 1 Failed: Expected 8, Got {dut.uo_out.value.integer}"
     
     await ClockCycles(dut.clk, 1) 
-    dut._log.info(f"Test Case 2: Expected 2, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 2
+    dut._log.info(f"Test Case 2: Expected 2, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 2, f"Test Case 2 Failed: Expected 2, Got {dut.uo_out.value.integer}"
 
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 3: Expected 10, Got {dut.uo_out.value}") 
-    assert dut.uio_out == 0 and dut.uo_out == 10
+    dut._log.info(f"Test Case 3: Expected 10, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out == 0 and dut.uo_out == 10, f"Test Case 3 Failed: Expected 10, Got {dut.uo_out.value.integer}"
 
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 4: Expected 0, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 6
+    dut._log.info(f"Test Case 4: Expected 0, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 6, f"Test Case 4 Failed: Expected 6, Got {dut.uo_out.value.integer}"
    
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 5: Expected 0, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 0
+    dut._log.info(f"Test Case 5: Expected 0, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 0, f"Test Case 5 Failed: Expected 0, Got {dut.uo_out.value.integer}"
   
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 6: Expected 10, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 10
+    dut._log.info(f"Test Case 6: Expected 10, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 10, f"Test Case 6 Failed: Expected 10, Got {dut.uo_out.value.integer}"
    
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 7: Expected 10, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 10
+    dut._log.info(f"Test Case 7: Expected 10, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 10, f"Test Case 7 Failed: Expected 10, Got {dut.uo_out.value.integer}"
  
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 8: Expected 12, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 12
+    dut._log.info(f"Test Case 8: Expected 12, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 12, f"Test Case 8 Failed: Expected 12, Got {dut.uo_out.value.integer}"
 
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 9: Expected 20, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 20
+    dut._log.info(f"Test Case 9: Expected 20, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 20, f"Test Case 9 Failed: Expected 20, Got {dut.uo_out.value.integer}"
 
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"Test Case 10: Expected 0, Got {dut.uo_out.value}") 
-    assert dut.uio_out.value == 0 and dut.uo_out.value == 0
+    dut._log.info(f"Test Case 10: Expected 0, Got {dut.uo_out.value.integer}") 
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 0, f"Test Case 10 Failed: Expected 0, Got {dut.uo_out.value.integer}"
     
     '''
     await ClockCycles(dut.clk, 3)
