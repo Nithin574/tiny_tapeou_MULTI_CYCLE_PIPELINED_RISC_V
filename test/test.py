@@ -47,7 +47,45 @@ async def test_project(dut):
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
     #assert dut.uo_out.value == 8
     assert concatenated_value == 10
-    
+
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 
+    assert concatenated_value == 6
+
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 8
+    assert concatenated_value == 0
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 8
+    assert concatenated_value == 10
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 8
+    assert concatenated_value == 10
+
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 8
+    assert concatenated_value == 12
+
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 8
+    assert concatenated_value == 20
+
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    #assert dut.uo_out.value == 8
+    assert concatenated_value == 0
 
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
