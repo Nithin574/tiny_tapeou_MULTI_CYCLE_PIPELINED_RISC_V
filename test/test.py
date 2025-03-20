@@ -27,55 +27,54 @@ async def test_project(dut):
 
    
     await ClockCycles(dut.clk, 3)
-
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
     dut._log.info(f"Test Case 1: Expected 8, Got {int(concatenated_value)}")    
     assert concatenated_value == 8, f"Test Case 1 Failed: Expected 8, Got {int(concatenated_value)}"
 
     await ClockCycles(dut.clk, 2)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 2
+    dut._log.info(f"Test Case 2: Expected 2, Got {int(concatenated_value)}")    
+    assert concatenated_value == 2, f"Test Case 2 Failed: Expected 2, Got {int(concatenated_value)}"
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 10
-
-
-    await ClockCycles(dut.clk, 1)
-    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 6
-
+    dut._log.info(f"Test Case 3: Expected 10, Got {int(concatenated_value)}")    
+    assert concatenated_value == 10, f"Test Case 3 Failed: Expected 10, Got {int(concatenated_value)}"
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
-    assert concatenated_value == 0
+    dut._log.info(f"Test Case 4: Expected 6, Got {int(concatenated_value)}")    
+    assert concatenated_value == 6, f"Test Case 4 Failed: Expected 6, Got {int(concatenated_value)}"
+   
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    dut._log.info(f"Test Case 5: Expected 0, Got {int(concatenated_value)}")    
+    assert concatenated_value == 0, f"Test Case 5 Failed: Expected 0, Got {int(concatenated_value)}"
+  
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    dut._log.info(f"Test Case 6: Expected 10, Got {int(concatenated_value)}")    
+    assert concatenated_value == 10, f"Test Case 6 Failed: Expected 10, Got {int(concatenated_value)}"
+   
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    dut._log.info(f"Test Case 7: Expected 10, Got {int(concatenated_value)}")    
+    assert concatenated_value == 10, f"Test Case 7 Failed: Expected 10, Got {int(concatenated_value)}"
+ 
+    await ClockCycles(dut.clk, 1)
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    dut._log.info(f"Test Case 8: Expected 12, Got {int(concatenated_value)}")    
+    assert concatenated_value == 12, f"Test Case 8 Failed: Expected 12, Got {int(concatenated_value)}"
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 10
+    dut._log.info(f"Test Case 9: Expected 20, Got {int(concatenated_value)}")    
+    assert concatenated_value == 20, f"Test Case 9 Failed: Expected 20, Got {int(concatenated_value)}"
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 10
-
-
-    await ClockCycles(dut.clk, 1)
-    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
-    assert concatenated_value == 12
-
-
-    await ClockCycles(dut.clk, 1)
-    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 20
-
-    await ClockCycles(dut.clk, 1)
-    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 0
+    dut._log.info(f"Test Case 10: Expected 0, Got {int(concatenated_value)}")    
+    assert concatenated_value == 0, f"Test Case 10 Failed: Expected 0, Got {int(concatenated_value)}"
 
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
