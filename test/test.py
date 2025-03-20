@@ -26,7 +26,8 @@ async def test_project(dut):
     dut._log.info("Test project behavior")
     await ClockCycles(dut.clk, 4)  
   #  assert dut.uio_out.value == 0  
-    assert dut.uo_out.value == 8
+    dut._log.info(f"Test Case 1: Expected 8, Got {dut.uo_out.value}") 
+    assert dut.uo_out.value == 8 and dut.uio_out.value == 0, f"Test Case 3 Failed: Expected 10, Got {dut.uo_out.value}"
     '''
     await ClockCycles(dut.clk, 2)  
     assert dut.uio_out.value == 0 and dut.uo_out.value == 2
