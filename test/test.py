@@ -27,7 +27,6 @@ async def test_project(dut):
 
    
     await ClockCycles(dut.clk, 3)
-    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
     dut._log.info(f"Test Case 1: Expected 8, Got {int(dut.user_project.out)}")    
     assert dut.user_project.out == 8, f"Test Case 1 Failed: Expected 8, Got {int(dut.user_project.out)}"
 
