@@ -25,34 +25,34 @@ async def test_project(dut):
 
     dut._log.info("Test project behavior")
     await ClockCycles(dut.clk, 3)  
-    assert dut.uio_out == 0 and dut.uo_out == 8
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 8
     
     await ClockCycles(dut.clk, 2)  
-    assert dut.uio_out == 0 and dut.uo_out == 2
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 2
 
     await ClockCycles(dut.clk, 1)
     assert dut.uio_out == 0 and dut.uo_out == 10
 
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 6
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 6
    
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 0
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 0
   
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 10
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 10
    
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 10
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 10
  
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 12
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 12
 
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 20
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 20
 
     await ClockCycles(dut.clk, 1)
-    assert dut.uio_out == 0 and dut.uo_out == 0
+    assert dut.uio_out.value == 0 and dut.uo_out.value == 0
     
     '''
     await ClockCycles(dut.clk, 3)
