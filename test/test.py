@@ -25,33 +25,26 @@ async def test_project(dut):
 
     dut._log.info("Test project behavior")
 
-    # Set the input values you want to test
-    dut.ui_in.value = 20
-    dut.uio_in.value = 30
-
-    # Wait for one clock cycle to see the output values
+   
     await ClockCycles(dut.clk, 3)
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 8
 
+    dut._log.info("Test project behavior")
     await ClockCycles(dut.clk, 2)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 2
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 10
 
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 
     assert concatenated_value == 6
 
 
@@ -62,12 +55,10 @@ async def test_project(dut):
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 10
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 10
 
 
@@ -79,12 +70,10 @@ async def test_project(dut):
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 20
 
     await ClockCycles(dut.clk, 1)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #assert dut.uo_out.value == 8
     assert concatenated_value == 0
 
     # Keep testing the module by changing the input values, waiting for
