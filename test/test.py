@@ -73,7 +73,7 @@ async def test_project(dut):
     dut._log.info(f"Test Case 10: Expected 0, Got {int(concatenated_value)}")    
     assert concatenated_value == 0, f"Test Case 10 Failed: Expected 0, Got {int(concatenated_value)}"
 
-   '''
+    '''
     await ClockCycles(dut.clk, 3)
     dut._log.info(f"Test Case 1: Expected 8, Got {int(dut.user_project.cpu.out)}")    
     assert dut.user_project.out == 8, f"Test Case 1 Failed: Expected 8, Got {int(dut.user_project.out)}"
@@ -121,6 +121,6 @@ async def test_project(dut):
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
     dut._log.info(f"Test Case 10: Expected 0, Got {int(concatenated_value)}")    
     assert concatenated_value == 0, f"Test Case 10 Failed: Expected 0, Got {int(concatenated_value)}"
-'''
+    '''
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
