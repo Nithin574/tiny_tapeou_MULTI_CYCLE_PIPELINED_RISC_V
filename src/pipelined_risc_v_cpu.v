@@ -61,7 +61,7 @@ module pipelined_risc_v_cpu #(parameter WIDTH = 15) (clk, rst, out);
   //top module output
 	assign out = alu_result_wb_w;
 
-  program_counter #(.WIDTH(8)) program_counter_inst(.clk(clk),
+	program_counter #(.WIDTH(4)) program_counter_inst(.clk(clk),
     .rst(rst),
 	  .pc_scr(instruction_w[6:0]),
     .current_ins_add(current_ins_add_w)
