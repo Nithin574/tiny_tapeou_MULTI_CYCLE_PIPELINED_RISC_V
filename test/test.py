@@ -28,35 +28,44 @@ async def test_project(dut):
   #  assert dut.uio_out.value == 0  
     dut._log.info(f"Test Case 1: Expected 8, Got {dut.uo_out.value}") 
     assert dut.uo_out.value == 8 and dut.uio_out.value == 0, f"Test Case 3 Failed: Expected 10, Got {dut.uo_out.value}"
-    '''
-    await ClockCycles(dut.clk, 2)  
+    
+    await ClockCycles(dut.clk, 1) 
+    dut._log.info(f"Test Case 2: Expected 2, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 2
 
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 3: Expected 10, Got {dut.uo_out.value}") 
     assert dut.uio_out == 0 and dut.uo_out == 10
 
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 4: Expected 0, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 6
    
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 5: Expected 0, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 0
   
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 6: Expected 10, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 10
    
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 7: Expected 10, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 10
  
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 8: Expected 12, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 12
 
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 9: Expected 20, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 20
 
     await ClockCycles(dut.clk, 1)
+    dut._log.info(f"Test Case 10: Expected 0, Got {dut.uo_out.value}") 
     assert dut.uio_out.value == 0 and dut.uo_out.value == 0
     
-
+   '''
     await ClockCycles(dut.clk, 3)
     dut._log.info(f"Test Case 1: Expected 8, Got {int(dut.user_project.cpu.out)}")    
     assert dut.user_project.out == 8, f"Test Case 1 Failed: Expected 8, Got {int(dut.user_project.out)}"
