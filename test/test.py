@@ -8,8 +8,6 @@ from cocotb.triggers import ClockCycles
 
 @cocotb.test()
 async def test_project(dut):
-    print("Available signals in DUT:", dut._list_all())
-
     dut._log.info("Start")
 
     # Set the clock period to 10 us (100 KHz)
@@ -30,7 +28,7 @@ async def test_project(dut):
    
     await ClockCycles(dut.clk, 3)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    #dut._log.info(f"Test Case 1: Expected 8, Got {int(dut.out)}")    
+    #dut._log.info(f"Test Case 1: Expected 8, Got {int(dut.user_project.out)}")    
     assert dut.out == 8#, f"Test Case 1 Failed: Expected 8, Got {int(dut.out)}"
 
     await ClockCycles(dut.clk, 2)
