@@ -30,10 +30,11 @@ async def test_project(dut):
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
-    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
-    assert concatenated_value == 8
 
-    dut._log.info("Test project behavior")
+    concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
+    dut._log.info(f"Test Case 1: Expected 8, Got {int(concatenated_value)}")    
+    assert concatenated_value == 8, f"Test Case 1 Failed: Expected 8, Got {int(concatenated_value)}"
+
     await ClockCycles(dut.clk, 2)
     concatenated_value = (dut.uio_out.value.integer << 8) | dut.uo_out.value.integer
     assert concatenated_value == 2
